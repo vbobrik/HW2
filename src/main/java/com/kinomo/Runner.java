@@ -1,5 +1,5 @@
 package main.java.com.kinomo;
-
+import main.java.com.kinomo.audit.Tax;
 import main.java.com.kinomo.audit.Management;
 import main.java.com.kinomo.models.Employee;
 import main.java.com.kinomo.audit.Tax;
@@ -15,6 +15,8 @@ public class Runner {
         System.out.println("Steve's salary: " + steve.getSalary());
         System.out.println("Steve's salary after recount: " + steveManagement.newSalary());
         System.out.println("All money: " + steveManagement.allMoney());
+        steveManagement.hireNewEmployee(steve);
+        System.out.println("All money: " + steveManagement.allMoney());
 
         Employee ray = new Employee("Ray", "Stuff", 450, "junior");
         Management rayManagement = new Management(ray);
@@ -24,6 +26,12 @@ public class Runner {
         System.out.println("Steve's salary: " + ray.getSalary());
         System.out.println("Steve's salary after recount: " + rayManagement.newSalary());
         System.out.println("All money: " + rayManagement.allMoney());
+
+
+
+        Tax tax1 = new Tax();
+        Management calc = new Management(tax1, 40, true);
+        System.out.println("Tax count: " + calc.calcTax());
 
     }
 }

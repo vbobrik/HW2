@@ -43,6 +43,8 @@ public class Management {
         this.usd = newCurrency;
     }
 
+    //Get full name of employee
+
     public String getFullName() {
         return this.employee.getFirstName() + " " + this.employee.getLastName();
     }
@@ -63,10 +65,17 @@ public class Management {
         return this.employee.getSalary();
 
     }
+    public void hireNewEmployee(Employee employee) {
+        int x;
+        for (x = 1; x < 5; x ++) {
+            this.money = this.money - employee.getSalary();
+        }
+    }
 
-    public void calcTax() {
+    public int calcTax() {
         for(this.money = 130000; this.money < 140000; this.money ++) {
             this.money = this.money * (int) tax.getTaxPercent();
         }
+        return this.money;
     }
 }
