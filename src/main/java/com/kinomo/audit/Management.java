@@ -8,6 +8,10 @@ public class Management {
     private boolean usd;
     private Employee employee;
     private Tax tax;
+    String[] strMassEmp = new String[4];
+
+
+
 
     public Management( Tax tax, int leftMoney, boolean usd) {
         this.leftMoney = leftMoney;
@@ -78,4 +82,12 @@ public class Management {
         }
         return this.money;
     }
+
+    public void addEmployee(Employee employee, int index) {
+        this.strMassEmp[index] = ;
+    }
+
+public String getEmployee() {
+
+}
 }

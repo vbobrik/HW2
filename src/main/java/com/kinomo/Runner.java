@@ -33,5 +33,18 @@ public class Runner {
         Management calc = new Management(tax1, 40, true);
         System.out.println("Tax count: " + calc.calcTax());
 
+
+        Employee emp1 = new Employee(200, "junior");
+        Employee emp2 = new Employee(300, "Junior");
+        Employee emp3 = new Employee(450, "middle");
+        Employee emp4 = new Employee(700, "senior");
+
+        Management manEmployee = new Management();
+        manEmployee.addEmployee(emp1, 0);
+        manEmployee.addEmployee(emp2, 1);
+
+        System.out.print(manEmployee.getEmployee(0).getId());
+
+
     }
 }

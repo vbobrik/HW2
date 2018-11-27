@@ -5,6 +5,19 @@ public class Employee {
     private String lastName;
     private int salary;
     private String jobPosition;
+    private int id;
+
+    public Employee() {
+    }
+
+    ;
+
+    public Employee(int salary, String jobPosition) {
+        this.jobPosition = jobPosition;
+        this.salary = salary;
+    }
+
+    ;
 
     public Employee(String firstName, String lastName, int salary, String jobPosition) {
         this.firstName = firstName;
