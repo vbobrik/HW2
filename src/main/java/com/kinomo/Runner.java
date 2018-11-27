@@ -28,7 +28,6 @@ public class Runner {
         System.out.println("All money: " + rayManagement.allMoney());
 
 
-
         Tax tax1 = new Tax();
         Management calc = new Management(tax1, 40, true);
         System.out.println("Tax count: " + calc.calcTax());
@@ -39,11 +38,18 @@ public class Runner {
         Employee emp3 = new Employee(450, "middle");
         Employee emp4 = new Employee(700, "senior");
 
-        Management manEmployee = new Management();
-        manEmployee.addEmployee(emp1, 0);
-        manEmployee.addEmployee(emp2, 1);
+        calc.addEmployee(emp1, 0);
 
-        System.out.print(manEmployee.getEmployee(0).getId());
+        calc.addEmployee(emp1, 0);
+        calc.addEmployee(emp2,1 );
+        calc.addEmployee(emp3,2);
+        calc.addEmployee(emp4,3 );
+        calc.calcAllsalary();
+        System.out.print(calc.getEmployee(2).getJobPosition());
+
+
+
+
 
 
     }

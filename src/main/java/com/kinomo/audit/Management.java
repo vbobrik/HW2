@@ -8,7 +8,7 @@ public class Management {
     private boolean usd;
     private Employee employee;
     private Tax tax;
-    String[] strMassEmp = new String[4];
+    Employee[] massEmp = new Employee[4];
 
 
 
@@ -69,6 +69,19 @@ public class Management {
         return this.employee.getSalary();
 
     }
+
+    public int newSalary(Employee i) {
+        String man = i.getJobPosition();
+        if (man == "middle") {
+           i.setSalary(i.getSalary() + 200);
+        } else if (man == "senior") {
+            i.setSalary(i.getSalary() + 500);
+        }
+
+        this.money = this.money - i.getSalary();
+        return i.getSalary();
+
+    }
     public void hireNewEmployee(Employee employee) {
         int x;
         for (x = 1; x < 5; x ++) {
@@ -83,11 +96,22 @@ public class Management {
         return this.money;
     }
 
-    public void addEmployee(Employee employee, int index) {
-        this.strMassEmp[index] = ;
+    public void addEmployee(Employee newEmployee, int index) {
+        this.massEmp[index] = newEmployee;
     }
 
-public String getEmployee() {
+    public Employee getEmployee(int index) {
+        return this.massEmp[index];
+    }
 
-}
+    public int calcAllsalary() {
+
+        for(int i = 0; i < this.massEmp.length; i ++) {
+
+            this.newSalary(this.massEmp[i]);
+
+        }
+        return
+    }
+
 }
