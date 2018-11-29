@@ -1,4 +1,6 @@
 package main.java.com.kinomo;
+
+import com.sun.java.accessibility.util.EventQueueMonitor;
 import main.java.com.kinomo.audit.Tax;
 import main.java.com.kinomo.audit.Management;
 import main.java.com.kinomo.models.Employee;
@@ -15,7 +17,7 @@ public class Runner {
         System.out.println("Steve's salary: " + steve.getSalary());
         System.out.println("Steve's salary after recount: " + steveManagement.newSalary());
         System.out.println("All money: " + steveManagement.allMoney());
-        steveManagement.hireNewEmployee(steve);
+        //steveManagement.hireNewEmployee(steve);
         System.out.println("All money: " + steveManagement.allMoney());
 
         Employee ray = new Employee("Ray", "Stuff", 450, "junior");
@@ -23,8 +25,8 @@ public class Runner {
 
         System.out.println(rayManagement.getFullName());
         steveManagement.newSalary();
-        System.out.println("Steve's salary: " + ray.getSalary());
-        System.out.println("Steve's salary after recount: " + rayManagement.newSalary());
+        System.out.println("Ray's salary: " + ray.getSalary());
+        System.out.println("Ray's salary after recount: " + rayManagement.newSalary());
         System.out.println("All money: " + rayManagement.allMoney());
 
 
@@ -33,19 +35,23 @@ public class Runner {
         System.out.println("Tax count: " + calc.calcTax());
 
 
-        Employee emp1 = new Employee(200, "junior");
-        Employee emp2 = new Employee(300, "Junior");
-        Employee emp3 = new Employee(450, "middle");
-        Employee emp4 = new Employee(700, "senior");
+        Management manMassive = new Management();
+        Employee sam = new Employee(300, "junior");
+        Employee bob = new Employee(458, "middle");
+        Employee jack = new Employee(730, "senior");
 
-        calc.addEmployee(emp1, 0);
+        manMassive.addMassEmp(steve, 0);
+        manMassive.addMassEmp(ray, 1);
+        manMassive.addMassEmp(sam, 2);
+        manMassive.addMassEmp(bob, 3);
+        manMassive.addMassEmp(jack, 4);
 
-        calc.addEmployee(emp1, 0);
-        calc.addEmployee(emp2,1 );
-        calc.addEmployee(emp3,2);
-        calc.addEmployee(emp4,3 );
-        calc.calcAllsalary();
-        System.out.print(calc.getEmployee(2).getJobPosition());
+        System.out.println(manMassive.getEmpl(1));
+
+        manMassive.setNewSalary("middle", 500);
+        manMassive.printPosition("junior");
+        manMassive.minMax(500, 900);
+
 
 
 
@@ -53,4 +59,6 @@ public class Runner {
 
 
     }
+
+
 }

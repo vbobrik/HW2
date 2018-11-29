@@ -8,12 +8,11 @@ public class Management {
     private boolean usd;
     private Employee employee;
     private Tax tax;
-    Employee[] massEmp = new Employee[4];
 
+    public Management() {
+    }
 
-
-
-    public Management( Tax tax, int leftMoney, boolean usd) {
+    public Management(Tax tax, int leftMoney, boolean usd) {
         this.leftMoney = leftMoney;
         this.usd = usd;
         this.tax = tax;
@@ -59,8 +58,10 @@ public class Management {
 
     public int newSalary() {
 
-        if (this.employee.getJobPosition() == "middle") {
+        if (this.employee.getJobPosition() == "junior") {
             this.employee.setSalary(this.employee.getSalary() + 200);
+        } else if (this.employee.getJobPosition() == "middle") {
+            this.employee.setSalary(this.employee.getSalary() + 300);
         } else if (this.employee.getJobPosition() == "senior") {
             this.employee.setSalary(this.employee.getSalary() + 500);
         }
@@ -70,18 +71,7 @@ public class Management {
 
     }
 
-    public int newSalary(Employee i) {
-        String man = i.getJobPosition();
-        if (man == "middle") {
-           i.setSalary(i.getSalary() + 200);
-        } else if (man == "senior") {
-            i.setSalary(i.getSalary() + 500);
-        }
 
-        this.money = this.money - i.getSalary();
-        return i.getSalary();
-
-    }
     public void hireNewEmployee(Employee employee) {
         int x;
         for (x = 1; x < 5; x ++) {
@@ -90,28 +80,64 @@ public class Management {
     }
 
     public int calcTax() {
-        for(this.money = 130000; this.money < 140000; this.money ++) {
+        for (this.money = 130000; this.money < 140000; this.money++) {
             this.money = this.money * (int) tax.getTaxPercent();
         }
         return this.money;
     }
 
-    public void addEmployee(Employee newEmployee, int index) {
-        this.massEmp[index] = newEmployee;
+
+    private Employee[] massEmp = new Employee[5];
+
+    public Employee[] getMassEmp() {
+        return this.massEmp;
     }
 
-    public Employee getEmployee(int index) {
-        return this.massEmp[index];
+    public void setMassEmp(Employee[] newMassEmp) {
+        this.massEmp = newMassEmp;
     }
 
-    public int calcAllsalary() {
+    public void addMassEmp(Employee employee, int i) {
+        this.massEmp[i] = employee;
+    }
 
-        for(int i = 0; i < this.massEmp.length; i ++) {
+    public Employee getEmpl(int i) {
+        return this.massEmp[i];
+    }
 
-            this.newSalary(this.massEmp[i]);
+
+    public void setNewSalary(String jobposition, int salary) {
+        int i;
+        for (i = 0; i < this.massEmp.length; i++) {
+
+            if (this.massEmp[i].getJobPosition() == jobposition) {
+                this.massEmp[i].setSalary(salary);
+                System.out.println(this.massEmp[i].getSalary());
+            }
 
         }
-        return
     }
+
+    public void printPosition(String position) {
+        int i;
+        for (i = 0; i < this.massEmp.length; i++) {
+
+            if (this.massEmp[i].getJobPosition() == position) {
+                System.out.println(this.massEmp[i].getJobPosition());
+            }
+        }
+    }
+
+    public void minMax(int minSalary, int maxSalary) {
+        if (minSalary >= 0 & maxSalary >= 0 & minSalary < maxSalary) {
+            int i;
+            for (i = 0; i < this.massEmp.length; i++) {
+                if (this.massEmp[i].getSalary() > minSalary & this.massEmp[i].getSalary() < maxSalary) {
+                    System.out.println(this.massEmp[i].getSalary());
+                }
+            }
+        }
+    }
+
 
 }
